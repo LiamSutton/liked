@@ -1,10 +1,11 @@
-import logo from './logo.svg';
+import {CLIENT_ID, CLIENT_SECRET, API_KEY} from './Secrets';
+import Login from './Components/Login';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to Liked!</h1>
+      <Login />
     </div>
   );
 }
