@@ -6,7 +6,12 @@ const Login = () => {
     let responseType = 'token'
     let includeGrantedScopes = true
     let baseUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}&include_granted_scopes=${includeGrantedScopes}}`
-    
+   
+    let fragmentString = window.location.hash.substring(1)
+    let expression = new RegExp('token=([A-za-z0-9\.\-])*')
+    let accessToken = expression.exec(fragmentString)[0].replace("token=", "")
+    console.log(accessToken)
+    console.log(fragmentString)
     const oauthSignIn =() => {
         // Google's OAuth 2.0 endpoint for requesting an access token
         var oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
